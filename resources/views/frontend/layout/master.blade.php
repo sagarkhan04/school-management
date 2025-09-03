@@ -32,7 +32,6 @@
 <body>
     @include('frontend.layout.inc.header')
     @yield('content')
-
     @include('frontend.layout.inc.footer')
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>

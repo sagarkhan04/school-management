@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -10,7 +11,14 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [Controller::class, 'index'])->name('frontend.index');
+Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
+Route::get('/about', [HomeController::class, 'about'])->name('frontend.about');
+Route::get('/class', [HomeController::class, 'class'])->name('frontend.class');
+Route::get('/blog', [HomeController::class, 'blog'])->name('frontend.blog');
+Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('frontend.gallery');
+Route::get('/single', [HomeController::class, 'single'])->name('frontend.single');
+Route::get('/team', [HomeController::class, 'team'])->name('frontend.team');
 
 
 /*
