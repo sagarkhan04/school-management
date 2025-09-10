@@ -32,5 +32,6 @@ Route::get('/team', [HomeController::class, 'team'])->name('frontend.team');
 
 Route::get('/dashboard', [Controller::class, 'backendIndex'])->name('backend.index');
 Route::get('/register', [AuthController::class, 'register'])->name('backend.auth.register');
+Route::post('/register', [AuthController::class, 'create_user'])->name('backend.auth.register.post');
 Route::get('/login', [AuthController::class, 'login'])->name('backend.auth.login');
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('backend.auth.forgotPassword');
