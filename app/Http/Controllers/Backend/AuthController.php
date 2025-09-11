@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
