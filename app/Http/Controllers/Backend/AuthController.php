@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,20 +15,23 @@ class AuthController extends Controller
     {
         return view('backend/auth/login');
     }
+    public function authenticate(Request $request)
+    {
+        
+    }
 
     public function register()
     {
         return view('backend/auth/register');
 
     }
-
     public function create_user(Request $request)
     {
         request()->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'username' => 'required|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:4',
         ]);
 
         $save= new User();
@@ -35,6 +39,7 @@ class AuthController extends Controller
         $save->email= trim($request->email);
         $save->username= trim($request->username);
         $save->password= trim(Hash::make($request->password));
+        $save->remember_token= Str::random(60);
         $save->save();
         return redirect()->route('backend.auth.login')->with('success', 'Thank you for registering. You can now login.');
 

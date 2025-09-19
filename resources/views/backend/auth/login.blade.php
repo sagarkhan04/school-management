@@ -23,20 +23,12 @@
                                     <p class="text-center small">Enter your credentials to login</p>
                                 </div>
                                 @include('backend.auth.message')
-                                <form class="row g-3 needs-validation" novalidate>
-                                    {{-- <div class="col-12">
+                                <form class="row g-3 needs-validation" novalidate action="" method="POST">
+                                    @csrf
+                                    <div class="col-12">
                                         <label for="yourEmail" class="form-label">Your Email</label>
                                         <input type="email" name="email" class="form-control" id="yourEmail" required>
                                         <div class="invalid-feedback">Please enter a valid Email address!</div>
-                                    </div> --}}
-                                    <div class="col-12">
-                                        <label for="yourUsername" class="form-label">Username</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="text" name="username" class="form-control" id="yourUsername" required >
-                                            {{-- <div class="invalid-feedback">Please choose a username.</div> --}}
-                                        </div>
-                                        {{-- <div style="color: red;">{{ $errors->first('username') }}</div> --}}
                                     </div>
 
                                     <div class="col-12">

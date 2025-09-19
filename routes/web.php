@@ -34,4 +34,5 @@ Route::get('/dashboard', [Controller::class, 'backendIndex'])->name('backend.ind
 Route::get('/register', [AuthController::class, 'register'])->name('backend.auth.register');
 Route::post('/register', [AuthController::class, 'create_user'])->name('backend.auth.register.post');
 Route::get('/login', [AuthController::class, 'login'])->name('backend.auth.login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('backend.auth.login.post');
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('backend.auth.forgotPassword');
