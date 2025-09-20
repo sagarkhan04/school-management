@@ -17,12 +17,14 @@ class AuthController extends Controller
     }
     public function authenticate(Request $request)
     {
+       $remember = $request->has('remember') ? true : false;
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (auth()->attempt($credentials)) {
+        if (auth()->attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/dashboard');
